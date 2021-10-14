@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}| Show-list{% endblock %}
+
+{% block content %}
+
+</head>
+<body>
+
+    <!--Navbar-->
+    <nav class="nav">
+        <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'dashboard' %}">
+                <img src="{% static 'img/logo.JPG' %}" alt="logo">
+              </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto logout">
+            <li class="nav-item active mr-3">
+                <a id="logout" class="nav-link" href="{% url 'account' %}"><img src="{% static 'img/logout.png' %}" width="30px" alt="logout"> Logout</a>
+              </li>
+        </ul>
+    </nav>
+
+    <!--Welcome section-->
+    <section id="welcome">
+        <h1>Welcome "{{user.first_name}}"!</h1>
+    </section>
+
+    <!--Content page-->
+    <div class="content-div">
+        
+        <!--Left div-->
+ 
+        <div class="left-div">
+            <h3><u> Time off </u></h3><br><br>
+            <ul>
+                <li><a href="{% url 'newform' %}"><button type="button" class="btn btn-primary" >Add new date</button></a></li><br>
+                <li><a href="{% url 'showlist' %}"><button type="button" class="btn btn-primary">Show your list</button></a></li>
+            </ul>
+            <br><br><br><br><br><br>
+        </div>
+
+        <!--Right div-->
+
+        <div id='right-div' class="right-div" >
+
+            <!--Show your list button-->
+            <div id="second-container">
+                <div class="show-list">
+                    <h2>Your cards list</h2>
+                    <div class="cards-list">
+
+                        {% if cards %}
+                            {% for card in cards %}
+                                <!-- Card 1 -->
+                            <div class="date-card">
+                                <p class="label">Date from:</p>
+                                <p class="dateFrom">{{card.date_from}}</p>
+                                <p class="label">Date to:</p>
+                                <p class="dateTo">{{card.date_to}}</p>
+                                <p class="label">Description:</p>
+                                <p class="desc">{{card.description}}</p>                                
+                            </div>
+
+                            <!-- Pop out infodiv -->
+                            
+                            {% endfor %}
+                        {% endif %}           
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+{% endblock %}

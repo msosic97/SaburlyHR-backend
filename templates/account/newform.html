@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}| Dashboard | New form{% endblock %}
+
+{% block content %}
+
+</head>
+<body>
+
+    <!--Navbar-->
+    <nav class="nav">
+        <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'dashboard' %}">
+                <img src="{% static 'img/logo.JPG' %}" alt="logo">
+              </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto logout">
+            <li class="nav-item active mr-3">
+                <a id="logout" class="nav-link" href="{% url 'account' %}"><img src="{% static 'img/logout.png' %}" width="30px" alt="logout"> Logout</a>
+              </li>
+        </ul>
+    </nav>
+
+    <!--Welcome section-->
+    <section id="welcome">
+        <h1>Welcome "{{user.first_name}}"!</h1>
+    </section>
+
+    <!--Content page-->
+    <div class="content-div">
+        
+        <!--Left div-->
+ 
+        <div class="left-div">
+            <h3><u> Time off </u></h3><br><br>
+            <ul>
+                <li><a href="{% url 'newform' %}"><button type="button" class="btn btn-primary" >Add new date</button></a></li><br>
+                <li><a href="{% url 'showlist' %}"><button type="button" class="btn btn-primary">Show your list</button></a></li>
+            </ul>
+            <br><br><br><br><br><br>
+        </div>
+
+        <!--Right div-->
+
+        <div id='right-div' class="right-div" >
+            <!--container represent "Add new date" button-->
+            <div id="first-container" style="display: block;" class="container">
+                <h2 class="txtAbsence">Add new absence	&nbsp;</h2>
+
+                <!--Card code-->
+                <div id="card" style="display: block;">
+                    <p>Please fulfill form bellow :</p>
+                    <form action="submitCard" method="POST" style="width: 300px;">
+                        {% csrf_token %}
+                        
+                        <div id="form-wrapper" style="width:250px; display: flex; gap:1px; flex-direction:column;">{{ cardForm }}</div>
+                        
+
+                        <div id="wrapper">
+                            <button id="submitBtn" type="submit" class="btn btn-primary" style="margin-top: 5px;">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    margin: 1%;
+    padding: 1%;
+    width: fit-content;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card form {
+    max-width: 400px;
+}
+
+form .dateinput {
+    color:brown;
+    background-color: black;
+}
+
+#wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.txtAbsence {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style:italic;
+}
