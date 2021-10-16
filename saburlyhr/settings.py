@@ -79,12 +79,20 @@ WSGI_APPLICATION = 'saburlyhr.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'saburlyhrdb',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'b18',
+    #     'HOST': 'localhost',
+
+    # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'saburlyhrdb',
-        'USER': 'postgres',
-        'PASSWORD': 'b18',
-        'HOST': 'localhost',
+        'NAME': 'd2omei0teg0ep6',
+        'USER': 'oqmxyevgxyvfne',
+        'PASSWORD': 'e6eb86bb19155a5b71e6cc1cf1a81a258376bd0670d8396e96f598d5c5836ad8',
+        'HOST': 'ec2-34-250-16-127.eu-west-1.compute.amazonaws.com',
 
     }
 }
